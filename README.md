@@ -1,7 +1,5 @@
 
-  # Refaçonner le design
-
-  This is a code bundle for Refaçonner le design. The original project is available at https://www.figma.com/design/y4odJvu11dzdsjt9r2YuH5/Refa%C3%A7onner-le-design.
+  # Miss UNSTIM MathCare
 
   ## Running the code
 
