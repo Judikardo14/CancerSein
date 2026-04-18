@@ -69,7 +69,7 @@ export function HomePage() {
             </h1>
 
             <p style={{ fontSize: 17, lineHeight: 1.85, color: "rgba(255,255,255,0.70)", maxWidth: 460, fontFamily: "'Lora', serif" }}>
-              MathCare utilise l'intelligence artificielle pour prédire le risque de cancer du sein — accessible à toutes, partout au Bénin, sans délai.
+              Anontché utilise l'intelligence artificielle pour prédire le risque de cancer du sein — accessible à toutes, partout au Bénin, sans délai.
             </p>
 
             <div className="flex gap-4 flex-wrap">

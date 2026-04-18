@@ -13,7 +13,7 @@ const timeline = [
   { year: "2024", event: "Identification du problème — taux de diagnostic tardif au Bénin", color: C.earth },
   { year: "2025", event: "Recherche des données épidémiologiques et construction du modèle prédictif", color: C.rose },
   { year: "2025", event: "Développement du prototype de l'outil clinique", color: C.gold },
-  { year: "2026", event: "Lancement de MathCare v2 — avec analyse d'image radiographique", color: C.forestMid },
+  { year: "2026", event: "Lancement de Anontché v2 — avec analyse d'image radiographique", color: C.forestMid },
 ];
 
 const values = [
@@ -32,10 +32,10 @@ export function AboutPage() {
           À propos
         </div>
         <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(34px, 4vw, 52px)", fontWeight: 700, color: C.white, lineHeight: 1.15, letterSpacing: "-0.5px", maxWidth: 600 }}>
-          La <em style={{ fontStyle: "italic", color: C.gold }}>mission</em> derrière MathCare
+          La <em style={{ fontStyle: "italic", color: C.gold }}>mission</em> derrière Anontché
         </h1>
         <p style={{ fontSize: 17, color: "rgba(255,255,255,0.70)", fontFamily: "'Lora', serif", lineHeight: 1.8, maxWidth: 520, marginTop: "1.2rem" }}>
-          Un outil né d'un constat brutal : au Bénin, 7 cancers du sein sur 10 sont diagnostiqués trop tard. MathCare est la réponse mathématique à cette réalité.
+          Un outil né d'un constat brutal : au Bénin, 7 cancers du sein sur 10 sont diagnostiqués trop tard. Anontché est la réponse mathématique à cette réalité.
         </p>
       </div>
 
@@ -51,7 +51,7 @@ export function AboutPage() {
               Le cancer du sein est la première cause de décès par cancer chez les femmes africaines. Au Bénin, le manque d'outils de dépistage accessibles et le faible niveau de sensibilisation contribuent à des diagnostics tardifs, souvent au stade III ou IV.
             </p>
             <p style={{ fontSize: 16, color: C.textMid, lineHeight: 1.85, fontFamily: "'Lora', serif" }}>
-              MathCare est un outil de dépistage intelligent, gratuit, disponible hors ligne, qui combine un formulaire clinique à un algorithme de prédiction du risque — et une analyse d'image radiographique pour démontrer la puissance de l'IA médicale appliquée à ce contexte.
+              Anontché est un outil de dépistage intelligent, gratuit, disponible hors ligne, qui combine un formulaire clinique à un algorithme de prédiction du risque — et une analyse d'image radiographique pour démontrer la puissance de l'IA médicale appliquée à ce contexte.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ export function AboutPage() {
               { num: "70%",    label: "des cancers diagnostiqués en phase avancée au Bénin" },
               { num: "87%",    label: "de taux de survie avec un dépistage précoce" },
               { num: "48 ans", label: "âge moyen au diagnostic, souvent trop tardif" },
-              { num: "0 km",   label: "MathCare se déplace avec l'utilisatrice" },
+              { num: "0 km",   label: "Anontché se déplace avec l'utilisatrice" },
             ].map((s) => (
               <div key={s.num} className="rounded-2xl p-5" style={{ background: C.white, border: "0.5px solid rgba(139,58,15,0.08)" }}>
                 <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 30, fontWeight: 700, color: C.earth, marginBottom: 6 }}>{s.num}</div>
@@ -122,7 +122,7 @@ export function AboutPage() {
               Marguérite ASSOU
             </h2>
             <p style={{ fontSize: 16, color: C.textMid, fontFamily: "'Lora', serif", lineHeight: 1.85, marginBottom: "0.8rem" }}>
-              Étudiante chercheuse à l'Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM) du Bénin. Marguérite a développé MathCare dans le cadre de ses travaux sur l'application des mathématiques appliquées à la santé publique en Afrique subsaharienne.
+              Étudiante chercheuse à l'Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM) du Bénin. Marguérite a développé Anontché dans le cadre de ses travaux sur l'application des mathématiques appliquées à la santé publique en Afrique subsaharienne.
             </p>
             <p style={{ fontSize: 16, color: C.textMid, fontFamily: "'Lora', serif", lineHeight: 1.85 }}>
               Convaincue que la technologie doit d'abord servir ceux qui en ont le plus besoin, elle continue d'enrichir l'outil avec de nouvelles données et partenariats cliniques.
