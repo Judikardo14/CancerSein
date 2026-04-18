@@ -24,7 +24,7 @@ const C = {
 // ── API URLs ────────────────────────────────────────────────────────
 const CLINICAL_API = "https://judikardo-cancersein.hf.space/api/v1/predict/clinical";
 const IMAGE_API    = "https://parfait60-breast-cancer-classification-api.hf.space/api/v1/predict/binary";
-const IMAGE_API_KEY = import.meta.env.VITE_HF_IMAGE_API_KEY ?? "";
+const IMAGE_API_KEY = (import.meta as ImportMeta & { env?: Record<string, string> }).env?.VITE_HF_IMAGE_API_KEY ?? "";
 
 const inputStyle: React.CSSProperties = {
   background: C.sand,
@@ -175,13 +175,13 @@ function ClinicalTab() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* ── FORM ── */}
-      <div className="rounded-2xl p-8 flex flex-col gap-5" style={{ background: C.white, border: "0.5px solid rgba(139,58,15,0.1)" }}>
+      <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-5 glass-card depth-shadow" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
         <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, color: C.earth, fontWeight: 600, paddingBottom: "0.8rem", borderBottom: "0.5px solid rgba(139,58,15,0.1)" }}>
           Formulaire clinique
         </div>
 
         {/* Champs de base */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormField label="Âge">
             <input type="number" placeholder="ex. 44" value={age} onChange={(e) => setAge(e.target.value)} style={inputStyle}
               onFocus={(e) => (e.currentTarget.style.borderColor = C.earth)}
@@ -202,7 +202,7 @@ function ClinicalTab() {
           </select>
         </FormField>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormField label="Allaitement">
             <select value={breastfed} onChange={(e) => setBreastfed(e.target.value)} style={inputStyle}>
               <option value="oui">Oui</option>
@@ -217,7 +217,7 @@ function ClinicalTab() {
           </FormField>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormField label="Enfants">
             <select value={children} onChange={(e) => setChildren(e.target.value)} style={inputStyle}>
               <option value="oui">Oui</option>
@@ -250,7 +250,7 @@ function ClinicalTab() {
             <div style={{ fontSize: 11, color: C.textSoft, fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: 1.6 }}>
               Ces mesures proviennent d'une biopsie ou échographie. Si renseignées, elles améliorent la précision du modèle.
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <FormField label="Rayon moyen (mm)">
                 <input type="number" step="0.01" placeholder="ex. 14.1" value={meanRadius} onChange={(e) => setMeanRadius(e.target.value)} style={inputStyle} />
               </FormField>
@@ -285,11 +285,17 @@ function ClinicalTab() {
       {/* ── RESULT PANEL ── */}
       <div className="flex flex-col gap-5">
         {loading && (
-          <div className="rounded-2xl p-8 flex flex-col gap-4" style={{ background: C.white, border: "0.5px solid rgba(139,58,15,0.1)" }}>
+          <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-4 glass-card depth-shadow" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: C.text, fontWeight: 600 }}>Analyse en cours…</div>
-            {["Envoi des données à l'API", "Application du modèle prédictif", "Calcul du score de risque", "Génération du rapport"].map((step, i) => (
-              <AnalysisStep key={step} label={step} delay={i * 350} />
-            ))}
+            <p style={{ margin: 0, fontSize: 14, color: C.textMid, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              Vous faites l'essentiel pour votre santé. Les résultats arrivent dans quelques secondes.
+            </p>
+            <div className="flex flex-col gap-3 mt-1">
+              <div className="skeleton-shimmer" style={{ height: 12, width: "88%" }} />
+              <div className="skeleton-shimmer" style={{ height: 12, width: "74%" }} />
+              <div className="skeleton-shimmer" style={{ height: 12, width: "93%" }} />
+              <div className="skeleton-shimmer" style={{ height: 12, width: "67%" }} />
+            </div>
           </div>
         )}
 
@@ -304,7 +310,7 @@ function ClinicalTab() {
 
         {result && !loading && (
           <>
-            <div className="rounded-2xl p-8 flex flex-col gap-4" style={{ background: riskConfig[result.level].bg }}>
+            <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-4" style={{ background: riskConfig[result.level].bg }}>
               <div className="flex items-center gap-3">
                 {riskConfig[result.level].icon}
                 <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: C.white, fontWeight: 700 }}>{result.label}</span>
@@ -344,14 +350,14 @@ function ClinicalTab() {
           )}
 
           {!result && !loading && !error && (
-            <div className="rounded-2xl p-10 flex flex-col items-center justify-center text-center gap-4" style={{ background: C.white, border: "0.5px dashed rgba(139,58,15,0.2)", minHeight: 280 }}>
+            <div className="rounded-2xl p-6 sm:p-10 flex flex-col items-center justify-center text-center gap-4" style={{ background: C.white, border: "0.5px dashed rgba(139,58,15,0.2)", minHeight: 280 }}>
             <Info size={48} color={C.earth} />
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, color: C.text, fontWeight: 600 }}>Votre résultat apparaîtra ici</div>
             <p style={{ fontSize: 13, color: C.textSoft, fontFamily: "'Plus Jakarta Sans', sans-serif", maxWidth: 260, lineHeight: 1.7 }}>Remplissez le formulaire et cliquez sur "Lancer l'évaluation".</p>
             </div>
           )}
 
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
             { icon: Clock, text: "Résultat en moins de 30s" },
             { icon: Lock, text: "Données non enregistrées" },
@@ -383,6 +389,13 @@ const analysisSteps = [
   "Classification des régions",
   "Calcul du score de malignité",
   "Génération du rapport",
+];
+
+const encouragementMessages = [
+  "Vous faites l'essentiel pour votre santé.",
+  "Très bien, l'analyse avance en toute sécurité.",
+  "Plus que deux étapes, on y est presque.",
+  "Dernière ligne droite, merci pour votre confiance.",
 ];
 
 interface ImageResult {
@@ -508,8 +521,8 @@ function ImageTab() {
             onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
             onDragLeave={() => setDragOver(false)}
             onDrop={onDrop}
-            className="rounded-2xl flex flex-col items-center justify-center gap-4 cursor-pointer transition-all duration-200"
-            style={{ border: `2px dashed ${dragOver ? C.earth : "rgba(139,58,15,0.25)"}`, background: dragOver ? "rgba(139,58,15,0.04)" : C.white, minHeight: 320, padding: "3rem", textAlign: "center" }}
+            className="rounded-2xl flex flex-col items-center justify-center gap-4 cursor-pointer transition-all duration-200 p-5 sm:p-12 min-h-[250px] sm:min-h-[320px]"
+            style={{ border: `2px dashed ${dragOver ? C.earth : "rgba(139,58,15,0.25)"}`, background: dragOver ? "rgba(139,58,15,0.04)" : C.white, textAlign: "center" }}
           >
             <div className="flex items-center justify-center w-16 h-16 rounded-2xl" style={{ background: C.sand }}>
               <UploadCloud size={28} color={C.earth} />
@@ -574,7 +587,7 @@ function ImageTab() {
       {/* ── RIGHT ── */}
       <div className="flex flex-col gap-5">
         {step === "idle" && (
-          <div className="rounded-2xl p-8 flex flex-col gap-5" style={{ background: C.white, border: "0.5px solid rgba(139,58,15,0.1)" }}>
+          <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-5 glass-card depth-shadow" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 600, color: C.text }}>Comment ça fonctionne ?</div>
             {[
               { n: "1", title: "Importez votre image",     text: "Déposez une mammographie ou radiographie mammaire (JPG, PNG)." },
@@ -599,7 +612,7 @@ function ImageTab() {
         )}
 
         {step === "analyzing" && (
-          <div className="rounded-2xl p-8 flex flex-col gap-4" style={{ background: C.white, border: "0.5px solid rgba(139,58,15,0.1)" }}>
+          <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-4 glass-card depth-shadow" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 600, color: C.text }}>Analyse de l'image</div>
             <div>
               <div className="flex justify-between mb-1.5">
@@ -610,6 +623,9 @@ function ImageTab() {
                 <div style={{ height: "100%", width: `${analysisProgress}%`, background: `linear-gradient(90deg, ${C.earth}, ${C.gold})`, borderRadius: 10, transition: "width 0.5s ease" }} />
               </div>
             </div>
+            <p style={{ margin: 0, fontSize: 14, color: C.textMid, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              {encouragementMessages[Math.min(Math.max(currentStepIdx - 1, 0), encouragementMessages.length - 1)]}
+            </p>
             <div className="flex flex-col gap-3 mt-2">
               {analysisSteps.map((s, i) => (
                 <div key={s} className="flex items-center gap-3">
@@ -626,7 +642,7 @@ function ImageTab() {
 
         {step === "result" && result && (
           <>
-            <div className="rounded-2xl p-8 flex flex-col gap-4" style={{ background: result.color }}>
+            <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-4" style={{ background: result.color }}>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: C.white, fontWeight: 700 }}>{result.label}</div>
               <div>
                 <div className="flex justify-between mb-2">
@@ -669,19 +685,19 @@ export function EvaluationPage() {
 
   return (
     <main style={{ background: C.sand, minHeight: "100vh" }}>
-      <div style={{ background: C.forest, padding: "4rem 4rem 0" }}>
+      <div className="px-4 sm:px-6 lg:px-16 pt-10 sm:pt-14 lg:pt-16" style={{ background: C.forest }}>
         <div style={{ fontSize: 11, color: C.gold, letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif", marginBottom: "0.8rem" }}>
           Outil d'évaluation
         </div>
         <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(30px, 4vw, 46px)", fontWeight: 700, color: C.white, lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: "2rem" }}>
           Évaluez votre <em style={{ fontStyle: "italic", color: C.gold }}>risque</em>
         </h1>
-        <div className="flex gap-0">
+        <div className="flex gap-0 overflow-x-auto pb-1 -mx-1 px-1">
           {([
             { key: "clinique" as Tab, label: "Données cliniques", desc: "Formulaire médical + IA", icon: Dna },
             { key: "image"    as Tab, label: "Image radiographique", desc: "Upload & analyse IA", icon: Image },
           ] as const).map((tab) => (
-            <button key={tab.key} onClick={() => setActiveTab(tab.key)} className="flex flex-col items-start px-6 py-4 transition-all duration-200"
+            <button key={tab.key} onClick={() => setActiveTab(tab.key)} className="flex flex-col items-start px-4 sm:px-6 py-4 transition-all duration-200 min-w-[190px] sm:min-w-0"
               style={{ background: activeTab === tab.key ? C.sand : "transparent", border: "none", borderTop: activeTab === tab.key ? `2px solid ${C.gold}` : "2px solid transparent", cursor: "pointer", borderRadius: "12px 12px 0 0" }}>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: activeTab === tab.key ? C.text : "rgba(255,255,255,0.6)", fontWeight: activeTab === tab.key ? 500 : 400 }}>
                 {(() => {
@@ -695,7 +711,7 @@ export function EvaluationPage() {
           ))}
         </div>
       </div>
-      <div style={{ padding: "3rem 4rem" }}>
+      <div className="px-4 sm:px-6 lg:px-16 py-8 sm:py-10 lg:py-12">
         {activeTab === "clinique" ? <ClinicalTab /> : <ImageTab />}
       </div>
     </main>

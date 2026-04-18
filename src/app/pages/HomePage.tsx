@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Dna, ScanLine, BookOpen, Hospital } from "lucide-react";
+import { Dna, ScanLine, BookOpen, Hospital, HeartPulse, Wallet, Clock3 } from "lucide-react";
 import { StatsBand } from "../components/StatsBand";
 
 const C = {
@@ -15,6 +15,12 @@ const heroStats = [
   { num: "7/10", label: "diagnostics trop tardifs" },
   { num: "40%",  label: "survie à 5 ans au Bénin" },
   { num: "87%",  label: "avec dépistage précoce" },
+];
+
+const reassuranceItems = [
+  { icon: <HeartPulse size={18} />, title: "Douleur", text: "Évaluation non invasive, sans douleur physique." },
+  { icon: <Wallet size={18} />, title: "Coût", text: "Utilisation gratuite, sans abonnement obligatoire." },
+  { icon: <Clock3 size={18} />, title: "Durée", text: "Parcours initial en moins de 30 secondes." },
 ];
 
 const features = [
@@ -50,7 +56,7 @@ export function HomePage() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: C.forest, minHeight: "92vh", display: "flex", alignItems: "center" }}>
+      <section className="relative overflow-hidden" style={{ background: `radial-gradient(1000px 550px at 8% 8%, rgba(232,174,177,0.22) 0%, transparent 60%), radial-gradient(900px 500px at 92% 14%, rgba(194,207,222,0.3) 0%, transparent 62%), ${C.forest}`, minHeight: "92vh", display: "flex", alignItems: "center" }}>
         <div className="absolute" style={{ right: "-10%", top: "10%", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(194,87,115,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div className="absolute" style={{ left: "-5%", bottom: "5%", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(201,151,58,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -89,7 +95,7 @@ export function HomePage() {
 
             <div className="flex gap-10 flex-wrap pt-6" style={{ borderTop: "0.5px solid rgba(255,255,255,0.1)" }}>
               {heroStats.map((s) => (
-                <div key={s.num} className="flex flex-col gap-1">
+                <div key={s.num} className="flex flex-col gap-1 breath">
                   <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, fontWeight: 700, color: C.gold }}>{s.num}</span>
                   <span style={{ fontSize: 13, color: "rgba(255,255,255,0.78)", lineHeight: 1.4, maxWidth: 90, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.label}</span>
                 </div>
@@ -99,12 +105,12 @@ export function HomePage() {
 
           {/* Right panel */}
           <div className="hidden lg:flex flex-col gap-5 justify-center">
-            <div className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid rgba(201,151,58,0.2)" }}>
+            <div className="rounded-2xl p-6 flex flex-col gap-4 glass-card depth-shadow" style={{ background: "rgba(248,249,250,0.12)", border: "0.5px solid rgba(255,255,255,0.28)" }}>
               <div style={{ fontSize: 12, color: C.gold, letterSpacing: "1.5px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 Deux modes d'analyse
               </div>
               {modes.map((m) => (
-                <div key={m.title} className="rounded-xl px-5 py-4 flex items-center gap-4" style={{ background: "rgba(255,255,255,0.05)", border: `0.5px solid ${m.color}50` }}>
+                <div key={m.title} className="rounded-xl px-5 py-4 flex items-center gap-4" style={{ background: "rgba(248,249,250,0.14)", border: `0.5px solid ${m.color}55` }}>
                   <div style={{ width: 40, height: 40, borderRadius: 10, background: m.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     {m.icon}
                   </div>
@@ -139,6 +145,22 @@ export function HomePage() {
         </div>
       </section>
 
+      <section style={{ padding: "1.2rem 4rem 0", marginTop: "-2.2rem", position: "relative", zIndex: 2 }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {reassuranceItems.map((item) => (
+            <div key={item.title} className="glass-card depth-shadow rounded-2xl p-5 flex items-start gap-3" style={{ background: "rgba(248,249,250,0.58)" }}>
+              <div style={{ width: 34, height: 34, borderRadius: 12, background: "rgba(27,38,59,0.08)", color: C.earth, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                {item.icon}
+              </div>
+              <div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: C.text, fontWeight: 600 }}>{item.title}</div>
+                <p style={{ margin: 0, fontSize: 14, color: C.textMid, fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: 1.65 }}>{item.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <StatsBand />
 
       {/* ── FEATURE CARDS ── */}
@@ -153,7 +175,7 @@ export function HomePage() {
           {features.map((f) => (
             <Link key={f.title} to={f.link} style={{ textDecoration: "none" }}>
               <div className="flex flex-col gap-5 rounded-2xl p-8 h-full transition-transform duration-200 cursor-pointer"
-                style={{ background: C.white, border: "0.5px solid rgba(139,58,15,0.1)" }}
+                style={{ background: "rgba(248,249,250,0.6)", border: "0.5px solid rgba(255,255,255,0.5)", boxShadow: "0 16px 38px rgba(65,90,119,0.16)" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.transform = "translateY(-4px)")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = "translateY(0)")}>
                 <div style={{ width: 48, height: 48, borderRadius: 14, background: C.sand, display: "flex", alignItems: "center", justifyContent: "center", border: "0.5px solid rgba(139,58,15,0.1)" }}>
