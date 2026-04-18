@@ -684,7 +684,7 @@ export function EvaluationPage() {
   const [activeTab, setActiveTab] = useState<Tab>("clinique");
 
   return (
-    <main style={{ background: C.sand, minHeight: "100vh" }}>
+    <main style={{ background: C.sand, minHeight: "100vh", overflowX: "clip" }}>
       <div className="px-4 sm:px-6 lg:px-16 pt-10 sm:pt-14 lg:pt-16" style={{ background: C.forest }}>
         <div style={{ fontSize: 11, color: C.gold, letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif", marginBottom: "0.8rem" }}>
           Outil d'évaluation
@@ -692,7 +692,7 @@ export function EvaluationPage() {
         <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(30px, 4vw, 46px)", fontWeight: 700, color: C.white, lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: "2rem" }}>
           Évaluez votre <em style={{ fontStyle: "italic", color: C.gold }}>risque</em>
         </h1>
-        <div className="flex gap-0 overflow-x-auto pb-1 -mx-1 px-1">
+        <div className="flex w-full max-w-full gap-0 overflow-x-auto pb-1">
           {([
             { key: "clinique" as Tab, label: "Données cliniques", desc: "Formulaire médical + IA", icon: Dna },
             { key: "image"    as Tab, label: "Image radiographique", desc: "Upload & analyse IA", icon: Image },
