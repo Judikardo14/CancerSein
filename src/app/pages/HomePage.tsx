@@ -145,19 +145,24 @@ export function HomePage() {
         </div>
       </section>
 
-      <section style={{ padding: "1.2rem 4rem 0", marginTop: "-2.2rem", position: "relative", zIndex: 2 }}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {reassuranceItems.map((item) => (
-            <div key={item.title} className="glass-card depth-shadow rounded-2xl p-5 flex items-start gap-3" style={{ background: "rgba(248,249,250,0.58)" }}>
-              <div style={{ width: 34, height: 34, borderRadius: 12, background: "rgba(27,38,59,0.08)", color: C.earth, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                {item.icon}
+      <section className="px-4 sm:px-6 lg:px-16 pt-8 pb-2" style={{ background: C.sand }}>
+        <div className="mx-auto w-full max-w-6xl">
+          <div style={{ fontSize: 12, color: C.textSoft, letterSpacing: "1.6px", textTransform: "uppercase", marginBottom: "0.9rem", fontFamily: "'Plus Jakarta Sans', sans-serif", textAlign: "center" }}>
+            Une première réponse claire
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
+            {reassuranceItems.map((item) => (
+              <div key={item.title} className="glass-card depth-shadow rounded-2xl p-6 h-full flex items-start gap-3" style={{ background: "rgba(248,249,250,0.7)", border: "0.5px solid rgba(255,255,255,0.6)" }}>
+                <div style={{ width: 36, height: 36, borderRadius: 12, background: "rgba(27,38,59,0.08)", color: C.earth, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  {item.icon}
+                </div>
+                <div>
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: C.text, fontWeight: 600, marginBottom: 3 }}>{item.title}</div>
+                  <p style={{ margin: 0, fontSize: 14, color: C.textMid, fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: 1.65 }}>{item.text}</p>
+                </div>
               </div>
-              <div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: C.text, fontWeight: 600 }}>{item.title}</div>
-                <p style={{ margin: 0, fontSize: 14, color: C.textMid, fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: 1.65 }}>{item.text}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
