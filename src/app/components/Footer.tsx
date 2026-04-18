@@ -124,7 +124,7 @@ export function Footer() {
         }}
       >
         <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)", fontFamily: "'Lora', serif" }}>
-          © 2026 MathCare · Bénin · UNSTIM — Outil de dépistage non diagnostique
+          © 2026 Anontché · Bénin · UNSTIM — Outil de dépistage non diagnostique
         </span>
       </div>
     </footer>
