@@ -27,16 +27,17 @@ const IMAGE_API    = "https://parfait60-breast-cancer-classification-api.hf.spac
 const IMAGE_API_KEY = (import.meta as ImportMeta & { env?: Record<string, string> }).env?.VITE_HF_IMAGE_API_KEY ?? "";
 
 const inputStyle: React.CSSProperties = {
-  background: C.sand,
-  border: "0.5px solid rgba(139,58,15,0.18)",
-  borderRadius: 10,
-  padding: "10px 14px",
+  background: "rgba(248,249,250,0.82)",
+  border: "0.5px solid rgba(65,90,119,0.14)",
+  borderRadius: 14,
+  padding: "12px 15px",
   fontFamily: "'Plus Jakarta Sans', sans-serif",
   fontSize: 14,
   color: C.text,
   width: "100%",
   outline: "none",
-  transition: "border-color 0.2s",
+  transition: "border-color 0.2s, box-shadow 0.2s, transform 0.2s",
+  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)",
 };
 
 // ── Types ────────────────────────────────────────────────────────────
@@ -175,7 +176,7 @@ function ClinicalTab() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* ── FORM ── */}
-      <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-5 glass-card depth-shadow" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
+      <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-5 glass-card depth-shadow apple-hover" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
         <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, color: C.earth, fontWeight: 600, paddingBottom: "0.8rem", borderBottom: "0.5px solid rgba(139,58,15,0.1)" }}>
           Formulaire clinique
         </div>
@@ -246,7 +247,7 @@ function ClinicalTab() {
         </button>
 
         {showAdvanced && (
-          <div className="flex flex-col gap-4" style={{ padding: "1rem", background: C.ocrePale, borderRadius: 12, border: "0.5px solid rgba(139,58,15,0.12)" }}>
+          <div className="flex flex-col gap-4 glass-panel" style={{ padding: "1rem", background: C.ocrePale, borderRadius: 16, border: "0.5px solid rgba(139,58,15,0.12)" }}>
             <div style={{ fontSize: 11, color: C.textSoft, fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: 1.6 }}>
               Ces mesures proviennent d'une biopsie ou échographie. Si renseignées, elles améliorent la précision du modèle.
             </div>
@@ -285,7 +286,7 @@ function ClinicalTab() {
       {/* ── RESULT PANEL ── */}
       <div className="flex flex-col gap-5">
         {loading && (
-          <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-4 glass-card depth-shadow" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
+          <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-4 glass-card depth-shadow apple-hover" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: C.text, fontWeight: 600 }}>Analyse en cours…</div>
             <p style={{ margin: 0, fontSize: 14, color: C.textMid, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Vous faites l'essentiel pour votre santé. Les résultats arrivent dans quelques secondes.
@@ -612,7 +613,7 @@ function ImageTab() {
         )}
 
         {step === "analyzing" && (
-          <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-4 glass-card depth-shadow" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
+          <div className="rounded-2xl p-5 sm:p-8 flex flex-col gap-4 glass-card depth-shadow apple-hover" style={{ background: "rgba(248,249,250,0.62)", border: "0.5px solid rgba(255,255,255,0.48)" }}>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 600, color: C.text }}>Analyse de l'image</div>
             <div>
               <div className="flex justify-between mb-1.5">
@@ -684,29 +685,29 @@ export function EvaluationPage() {
   const [activeTab, setActiveTab] = useState<Tab>("clinique");
 
   return (
-    <main style={{ background: C.sand, minHeight: "100vh", overflowX: "clip" }}>
-      <div className="px-4 sm:px-6 lg:px-16 pt-10 sm:pt-14 lg:pt-16" style={{ background: C.forest }}>
+    <main style={{ background: C.sand, minHeight: "100vh", overflowX: "clip" }} className="oil-paint">
+      <div className="px-4 sm:px-6 lg:px-16 pt-10 sm:pt-14 lg:pt-16 oil-paint" style={{ background: `linear-gradient(180deg, #1B263B 0%, #162033 100%)` }}>
         <div style={{ fontSize: 11, color: C.gold, letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif", marginBottom: "0.8rem" }}>
           Outil d'évaluation
         </div>
         <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(30px, 4vw, 46px)", fontWeight: 700, color: C.white, lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: "2rem" }}>
           Évaluez votre <em style={{ fontStyle: "italic", color: C.gold }}>risque</em>
         </h1>
-        <div className="flex w-full max-w-full gap-0 overflow-x-auto pb-1">
+        <div className="flex w-full max-w-full gap-2 overflow-x-auto pb-1">
           {([
             { key: "clinique" as Tab, label: "Données cliniques", desc: "Formulaire médical + IA", icon: Dna },
             { key: "image"    as Tab, label: "Image radiographique", desc: "Upload & analyse IA", icon: Image },
           ] as const).map((tab) => (
-            <button key={tab.key} onClick={() => setActiveTab(tab.key)} className="flex flex-col items-start px-4 sm:px-6 py-4 transition-all duration-200 min-w-[190px] sm:min-w-0"
-              style={{ background: activeTab === tab.key ? C.sand : "transparent", border: "none", borderTop: activeTab === tab.key ? `2px solid ${C.gold}` : "2px solid transparent", cursor: "pointer", borderRadius: "12px 12px 0 0" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: activeTab === tab.key ? C.text : "rgba(255,255,255,0.6)", fontWeight: activeTab === tab.key ? 500 : 400 }}>
+            <button key={tab.key} onClick={() => setActiveTab(tab.key)} className="flex flex-col items-start px-4 sm:px-6 py-4 transition-all duration-200 min-w-[190px] sm:min-w-0 apple-pill"
+              style={{ background: activeTab === tab.key ? "rgba(248,249,250,0.92)" : "rgba(255,255,255,0.06)", border: "0.5px solid rgba(255,255,255,0.12)", cursor: "pointer", borderRadius: 999, backdropFilter: "blur(14px) saturate(150%)", boxShadow: activeTab === tab.key ? "0 14px 24px rgba(27,38,59,0.14)" : "none" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: activeTab === tab.key ? C.text : "rgba(255,255,255,0.72)", fontWeight: activeTab === tab.key ? 500 : 400 }}>
                 {(() => {
                   const Icon = tab.icon;
                   return <Icon size={16} />;
                 })()}
                 {tab.label}
               </span>
-              <span style={{ fontSize: 11, color: activeTab === tab.key ? C.textSoft : "rgba(255,255,255,0.35)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{tab.desc}</span>
+              <span style={{ fontSize: 11, color: activeTab === tab.key ? C.textSoft : "rgba(255,255,255,0.45)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{tab.desc}</span>
             </button>
           ))}
         </div>

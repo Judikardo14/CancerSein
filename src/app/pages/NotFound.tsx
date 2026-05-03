@@ -16,6 +16,7 @@ export function NotFound() {
   return (
     <main
       style={{ background: C.forest, minHeight: "80vh", display: "flex", alignItems: "center", justifyContent: "center" }}
+      className="oil-paint"
     >
       <div className="text-center flex flex-col items-center gap-6 px-8">
         <div

@@ -16,18 +16,11 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer style={{ background: C.forest }}>
-      <div className="px-8 md:px-16 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <footer style={{ background: `radial-gradient(circle at 50% 0%, rgba(229,152,155,0.14), transparent 24%), ${C.forest}` }} className="mt-16 oil-paint">
+      <div className="mx-auto max-w-7xl px-8 md:px-16 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Brand */}
         <div className="flex flex-col gap-3">
-          <div
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 22,
-              color: C.white,
-              fontWeight: 700,
-            }}
-          >
+          <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: C.white, fontWeight: 700, textShadow: "0 10px 24px rgba(0,0,0,0.15)" }}>
             Anon<span style={{ color: C.gold }}>tché</span>
           </div>
           <div
@@ -66,10 +59,20 @@ export function Footer() {
                 color: "rgba(255,255,255,0.5)",
                 textDecoration: "none",
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
-                transition: "color 0.2s",
+                transition: "color 0.2s, transform 0.2s",
+                display: "inline-flex",
+                width: "fit-content",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = C.gold)}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)")}
+                onMouseEnter={(e) => {
+                  const element = e.currentTarget as HTMLElement;
+                  element.style.color = C.gold;
+                  element.style.transform = "translateX(2px)";
+                }}
+                onMouseLeave={(e) => {
+                  const element = e.currentTarget as HTMLElement;
+                  element.style.color = "rgba(255,255,255,0.5)";
+                  element.style.transform = "translateX(0)";
+                }}
             >
               {l.label}
             </Link>
@@ -100,14 +103,7 @@ export function Footer() {
           >
             Projet Scientifique Miss UNSTIM{"\u00A0"}2026
           </p>
-          <div
-            style={{
-              fontSize: 11,
-              color: "rgba(255,255,255,0.25)",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              marginTop: 4,
-            }}
-          >
+          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", fontFamily: "'Plus Jakarta Sans', sans-serif", marginTop: 4 }}>
            <span style={{ display: "inline-flex", alignItems: "center" }}>
              <span style={{ marginRight: 4 }}>Par</span>
              <span style={{ marginRight: 4 }}>Marguérite</span>
@@ -120,7 +116,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div
         style={{
-          borderTop: "0.5px solid rgba(255,255,255,0.07)",
+          borderTop: "0.5px solid rgba(255,255,255,0.08)",
           padding: "1.2rem 4rem",
           display: "flex",
           justifyContent: "center",

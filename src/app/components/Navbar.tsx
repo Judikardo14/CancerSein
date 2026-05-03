@@ -31,11 +31,8 @@ export function Navbar({ currentPath }: NavbarProps) {
   };
 
   return (
-    <nav
-      style={{ background: C.forest, borderBottom: "1px solid rgba(201,151,58,0.2)" }}
-      className="sticky top-0 z-50"
-    >
-      <div className="flex items-center justify-between px-6 md:px-12 py-4">
+    <nav className="apple-nav sticky top-0 z-50">
+      <div className="mx-auto flex items-center justify-between px-5 md:px-8 py-4 max-w-7xl">
         {/* Logo */}
         <Link
           to="/"
@@ -46,6 +43,7 @@ export function Navbar({ currentPath }: NavbarProps) {
             color: C.white,
             textDecoration: "none",
             letterSpacing: "-0.5px",
+            textShadow: "0 1px 18px rgba(255,255,255,0.08)",
           }}
         >
           Anon<span style={{ color: C.gold }}>tché</span>
@@ -57,16 +55,19 @@ export function Navbar({ currentPath }: NavbarProps) {
             <li key={l.to}>
               <Link
                 to={l.to}
+                className="apple-pill"
                 style={{
                   fontSize: 13,
-                  color: isActive(l.to) ? C.gold : "rgba(255,255,255,0.6)",
+                  color: isActive(l.to) ? C.gold : "rgba(255,255,255,0.72)",
                   textDecoration: "none",
                   letterSpacing: "0.4px",
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  transition: "color 0.2s",
+                  transition: "color 0.2s, background-color 0.2s, box-shadow 0.2s",
                   fontWeight: isActive(l.to) ? 500 : 400,
-                  borderBottom: isActive(l.to) ? `1.5px solid ${C.gold}` : "1.5px solid transparent",
-                  paddingBottom: 2,
+                  borderBottom: "1.5px solid transparent",
+                  padding: "7px 12px",
+                  background: isActive(l.to) ? "rgba(255,255,255,0.08)" : "transparent",
+                  boxShadow: isActive(l.to) ? "0 10px 18px rgba(27,38,59,0.12)" : "none",
                 }}
               >
                 {l.label}
@@ -76,15 +77,14 @@ export function Navbar({ currentPath }: NavbarProps) {
           <li>
             <Link
               to="/evaluation"
-              className="text-sm rounded-full transition-all duration-200"
+              className="text-sm rounded-full apple-pill apple-hover"
               style={{
-                background: C.rose,
+                background: "linear-gradient(135deg, rgba(229,152,155,0.98), rgba(201,123,130,0.98))",
                 color: C.white,
                 textDecoration: "none",
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 13,
                 padding: "8px 22px",
-                borderRadius: 40,
                 display: "inline-block",
               }}
             >
@@ -96,7 +96,7 @@ export function Navbar({ currentPath }: NavbarProps) {
         {/* Mobile toggle */}
         <button
           className="md:hidden p-2"
-          style={{ color: C.white, background: "none", border: "none", cursor: "pointer" }}
+          style={{ color: C.white, background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", cursor: "pointer", borderRadius: 999 }}
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
@@ -108,7 +108,7 @@ export function Navbar({ currentPath }: NavbarProps) {
       {open && (
         <div
           className="md:hidden flex flex-col gap-4 px-6 pb-6"
-          style={{ background: C.forest, borderTop: "0.5px solid rgba(255,255,255,0.06)" }}
+          style={{ background: "rgba(27,38,59,0.82)", borderTop: "0.5px solid rgba(255,255,255,0.08)", backdropFilter: "blur(22px) saturate(150%)" }}
         >
           {links.map((l) => (
             <Link
@@ -117,10 +117,12 @@ export function Navbar({ currentPath }: NavbarProps) {
               onClick={() => setOpen(false)}
               style={{
                 fontSize: 14,
-                color: isActive(l.to) ? C.gold : "rgba(255,255,255,0.7)",
+                color: isActive(l.to) ? C.gold : "rgba(255,255,255,0.78)",
                 textDecoration: "none",
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
-                padding: "4px 0",
+                padding: "8px 10px",
+                borderRadius: 999,
+                background: isActive(l.to) ? "rgba(255,255,255,0.08)" : "transparent",
               }}
             >
               {l.label}
@@ -130,13 +132,13 @@ export function Navbar({ currentPath }: NavbarProps) {
             to="/evaluation"
             onClick={() => setOpen(false)}
             style={{
-              background: C.rose,
+              background: "linear-gradient(135deg, rgba(229,152,155,0.98), rgba(201,123,130,0.98))",
               color: C.white,
               textDecoration: "none",
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 13,
               padding: "10px 22px",
-              borderRadius: 40,
+              borderRadius: 999,
               width: "fit-content",
               display: "inline-block",
             }}

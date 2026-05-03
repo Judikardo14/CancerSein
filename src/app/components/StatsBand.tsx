@@ -12,8 +12,8 @@ const items = [
 
 export function StatsBand() {
   return (
-    <div style={{ background: C.earth }}>
-      <div className="grid grid-cols-1 md:grid-cols-3" style={{ padding: "3.5rem 4rem", gap: "0" }}>
+    <div style={{ background: C.earth }} className="oil-paint">
+      <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3" style={{ padding: "3.5rem 4rem", gap: "0" }}>
         {items.map((item, i) => (
           <div
             key={item.num}
@@ -32,6 +32,7 @@ export function StatsBand() {
                 fontWeight: 700,
                 color: C.white,
                 lineHeight: 1,
+                textShadow: "0 12px 28px rgba(0,0,0,0.12)",
               }}
             >
               {item.num}

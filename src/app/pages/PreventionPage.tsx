@@ -16,7 +16,7 @@ export function PreventionPage() {
   return (
     <main>
       {/* Page header */}
-      <div style={{ background: C.forest, padding: "5rem 4rem" }}>
+      <div style={{ background: C.forest, padding: "5rem 4rem" }} className="oil-paint">
         <div
           style={{
             fontSize: 11,

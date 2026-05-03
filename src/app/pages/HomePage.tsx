@@ -56,14 +56,14 @@ export function HomePage() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: `radial-gradient(1000px 550px at 8% 8%, rgba(232,174,177,0.22) 0%, transparent 60%), radial-gradient(900px 500px at 92% 14%, rgba(194,207,222,0.3) 0%, transparent 62%), ${C.forest}`, minHeight: "92vh", display: "flex", alignItems: "center" }}>
-        <div className="absolute" style={{ right: "-10%", top: "10%", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(194,87,115,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div className="absolute" style={{ left: "-5%", bottom: "5%", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(201,151,58,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <section className="relative overflow-hidden oil-paint" style={{ background: `radial-gradient(900px 520px at 8% 8%, rgba(232,174,177,0.18) 0%, transparent 58%), radial-gradient(880px 520px at 92% 14%, rgba(194,207,222,0.28) 0%, transparent 60%), linear-gradient(180deg, #1B263B 0%, #152033 100%)`, minHeight: "92vh", display: "flex", alignItems: "center" }}>
+        <div className="absolute" style={{ inset: "10% -18% auto auto", width: 520, height: 520, borderRadius: "50%", background: "radial-gradient(circle, rgba(194,207,222,0.12) 0%, transparent 68%)", pointerEvents: "none", filter: "blur(10px)" }} />
+        <div className="absolute" style={{ left: "-10%", bottom: "-12%", width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(229,152,155,0.09) 0%, transparent 72%)", pointerEvents: "none", filter: "blur(14px)" }} />
 
         <div className="relative w-full grid grid-cols-1 lg:grid-cols-2 gap-12 px-8 md:px-16 py-20">
           <div className="flex flex-col gap-8 justify-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 w-fit rounded-full" style={{ background: "rgba(194,87,115,0.12)", border: "0.5px solid rgba(194,87,115,0.3)", color: C.roseMid, fontSize: 12, letterSpacing: "1px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif", padding: "6px 16px" }}>
+            <div className="inline-flex items-center gap-2 w-fit rounded-full apple-pill" style={{ background: "rgba(255,255,255,0.06)", border: "0.5px solid rgba(255,255,255,0.14)", color: C.roseMid, fontSize: 12, letterSpacing: "1px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif", padding: "6px 16px", backdropFilter: "blur(16px) saturate(150%)" }}>
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: C.roseMid, display: "inline-block", flexShrink: 0 }} />
               Dépistage intelligent — Bénin 2026
             </div>
@@ -74,21 +74,21 @@ export function HomePage() {
               nos femmes
             </h1>
 
-            <p style={{ fontSize: 17, lineHeight: 1.85, color: "rgba(255,255,255,0.70)", maxWidth: 460, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <p style={{ fontSize: 17, lineHeight: 1.85, color: "rgba(255,255,255,0.76)", maxWidth: 460, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Anontché utilise l'intelligence artificielle pour prédire le risque de cancer du sein — accessible à toutes, partout au Bénin, sans délai.
             </p>
 
             <div className="flex gap-4 flex-wrap">
-              <Link to="/evaluation" className="inline-block rounded-full transition-all duration-200"
-                style={{ background: C.rose, color: C.white, textDecoration: "none", fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 16, padding: "15px 32px" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = C.roseDark)}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = C.rose)}>
+              <Link to="/evaluation" className="inline-block rounded-full apple-pill apple-hover"
+                style={{ background: "linear-gradient(135deg, rgba(229,152,155,0.96) 0%, rgba(201,123,130,0.96) 100%)", color: C.white, textDecoration: "none", fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 16, padding: "15px 32px", boxShadow: "0 14px 26px rgba(229,152,155,0.18)" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg, rgba(240,167,171,0.98) 0%, rgba(185,109,116,0.98) 100%)")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg, rgba(229,152,155,0.96) 0%, rgba(201,123,130,0.96) 100%)")}>
                 Évaluer mon risque
               </Link>
-              <Link to="/prevention" className="inline-block rounded-full transition-all duration-200"
-                style={{ color: C.gold, border: "0.5px solid rgba(201,151,58,0.5)", textDecoration: "none", fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 16, padding: "15px 30px", background: "transparent" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(201,151,58,0.1)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "transparent")}>
+              <Link to="/prevention" className="inline-block rounded-full apple-pill apple-hover"
+                style={{ color: C.gold, border: "0.5px solid rgba(255,255,255,0.14)", textDecoration: "none", fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 16, padding: "15px 30px", background: "rgba(255,255,255,0.06)", backdropFilter: "blur(16px) saturate(150%)" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)")}>
                 En savoir plus
               </Link>
             </div>
@@ -105,12 +105,12 @@ export function HomePage() {
 
           {/* Right panel */}
           <div className="hidden lg:flex flex-col gap-5 justify-center">
-            <div className="rounded-2xl p-6 flex flex-col gap-4 glass-card depth-shadow" style={{ background: "rgba(248,249,250,0.12)", border: "0.5px solid rgba(255,255,255,0.28)" }}>
+            <div className="rounded-2xl p-6 flex flex-col gap-4 glass-card depth-shadow oil-paint" style={{ background: "rgba(248,249,250,0.1)", border: "0.5px solid rgba(255,255,255,0.22)" }}>
               <div style={{ fontSize: 12, color: C.gold, letterSpacing: "1.5px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 Deux modes d'analyse
               </div>
               {modes.map((m) => (
-                <div key={m.title} className="rounded-xl px-5 py-4 flex items-center gap-4" style={{ background: "rgba(248,249,250,0.14)", border: `0.5px solid ${m.color}55` }}>
+                <div key={m.title} className="rounded-xl px-5 py-4 flex items-center gap-4 apple-hover" style={{ background: "rgba(248,249,250,0.12)", border: `0.5px solid ${m.color}44` }}>
                   <div style={{ width: 40, height: 40, borderRadius: 10, background: m.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     {m.icon}
                   </div>
@@ -128,7 +128,7 @@ export function HomePage() {
               </Link>
             </div>
 
-            <div className="rounded-xl px-5 py-4 flex items-center gap-4" style={{ background: "rgba(201,151,58,0.08)", border: "0.5px solid rgba(201,151,58,0.2)" }}>
+            <div className="rounded-xl px-5 py-4 flex items-center gap-4 glass-card" style={{ background: "rgba(201,151,58,0.06)", border: "0.5px solid rgba(201,151,58,0.16)" }}>
               <div style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(201,151,58,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                 <Hospital size={20} color={C.gold} />
               </div>
@@ -145,14 +145,14 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 lg:px-16 pt-8 pb-2" style={{ background: C.sand }}>
+      <section className="px-4 sm:px-6 lg:px-16 pt-8 pb-2 apple-section" style={{ background: C.sand }}>
         <div className="mx-auto w-full max-w-6xl">
           <div style={{ fontSize: 12, color: C.textSoft, letterSpacing: "1.6px", textTransform: "uppercase", marginBottom: "0.9rem", fontFamily: "'Plus Jakarta Sans', sans-serif", textAlign: "center" }}>
             Une première réponse claire
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
             {reassuranceItems.map((item) => (
-              <div key={item.title} className="glass-card depth-shadow rounded-2xl p-6 h-full flex items-start gap-3" style={{ background: "rgba(248,249,250,0.7)", border: "0.5px solid rgba(255,255,255,0.6)" }}>
+              <div key={item.title} className="glass-card depth-shadow rounded-2xl p-6 h-full flex items-start gap-3 apple-hover" style={{ background: "rgba(248,249,250,0.74)", border: "0.5px solid rgba(255,255,255,0.56)" }}>
                 <div style={{ width: 36, height: 36, borderRadius: 12, background: "rgba(27,38,59,0.08)", color: C.earth, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                   {item.icon}
                 </div>
@@ -169,7 +169,7 @@ export function HomePage() {
       <StatsBand />
 
       {/* ── FEATURE CARDS ── */}
-      <section style={{ background: C.sand, padding: "5rem 4rem" }}>
+      <section style={{ background: C.sand, padding: "5rem 4rem" }} className="apple-section oil-paint">
         <div style={{ fontSize: 12, color: C.rose, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "0.8rem", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           Nos outils
         </div>
@@ -179,11 +179,11 @@ export function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {features.map((f) => (
             <Link key={f.title} to={f.link} style={{ textDecoration: "none" }}>
-              <div className="flex flex-col gap-5 rounded-2xl p-8 h-full transition-transform duration-200 cursor-pointer"
-                style={{ background: "rgba(248,249,250,0.6)", border: "0.5px solid rgba(255,255,255,0.5)", boxShadow: "0 16px 38px rgba(65,90,119,0.16)" }}
+              <div className="flex flex-col gap-5 rounded-[24px] p-8 h-full transition-transform duration-200 cursor-pointer glass-panel apple-hover"
+                style={{ background: "rgba(248,249,250,0.66)", border: "0.5px solid rgba(255,255,255,0.46)", boxShadow: "0 14px 30px rgba(65,90,119,0.12)" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.transform = "translateY(-4px)")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = "translateY(0)")}>
-                <div style={{ width: 48, height: 48, borderRadius: 14, background: C.sand, display: "flex", alignItems: "center", justifyContent: "center", border: "0.5px solid rgba(139,58,15,0.1)" }}>
+                <div style={{ width: 48, height: 48, borderRadius: 14, background: "rgba(248,249,250,0.92)", display: "flex", alignItems: "center", justifyContent: "center", border: "0.5px solid rgba(139,58,15,0.08)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.78)" }}>
                   {f.icon}
                 </div>
                 <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 19, fontWeight: 600, color: C.text }}>{f.title}</div>
@@ -196,7 +196,7 @@ export function HomePage() {
       </section>
 
       {/* ── URGENCY BANNER ── */}
-      <section style={{ background: `linear-gradient(135deg, ${C.roseDark} 0%, ${C.rose} 50%, ${C.ocre} 100%)`, padding: "4rem", textAlign: "center" }}>
+      <section style={{ background: `linear-gradient(135deg, ${C.roseDark} 0%, ${C.rose} 50%, ${C.ocre} 100%)`, padding: "4rem", textAlign: "center" }} className="oil-paint">
         <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 700, color: C.white, lineHeight: 1.35, marginBottom: "2rem" }}>
           Chaque jour sans dépistage est un jour de trop.
           <br />

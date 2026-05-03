@@ -18,7 +18,7 @@ export function Root() {
   }, [pathname, hash]);
 
   return (
-    <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "#F8F9FA", color: "#1B263B" }}>
+    <div className="apple-shell" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#1B263B" }}>
       <Navbar currentPath={pathname} />
       <Outlet />
       <Footer />

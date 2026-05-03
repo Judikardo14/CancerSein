@@ -20,7 +20,7 @@ export function AboutPage() {
   return (
     <main>
       {/* ── HEADER ── */}
-      <div style={{ background: C.forest, padding: "5rem 4rem" }}>
+      <div style={{ background: C.forest, padding: "5rem 4rem" }} className="oil-paint">
         <div style={{ fontSize: 12, color: C.gold, letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif", marginBottom: "0.8rem" }}>
           À propos
         </div>
@@ -33,7 +33,7 @@ export function AboutPage() {
       </div>
 
       {/* ── MISSION ── */}
-      <section style={{ background: C.sand, padding: "5rem 4rem" }}>
+      <section style={{ background: C.sand, padding: "5rem 4rem" }} className="apple-section oil-paint">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div style={{ fontSize: 12, color: C.rose, letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif", marginBottom: "0.8rem" }}>Notre mission</div>
@@ -66,7 +66,7 @@ export function AboutPage() {
 
 
       {/* ── VALUES ── */}
-      <section style={{ background: C.sandDeep, padding: "5rem 4rem" }}>
+      <section style={{ background: C.sandDeep, padding: "5rem 4rem" }} className="apple-section oil-paint">
         <div style={{ fontSize: 12, color: C.rose, letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif", marginBottom: "0.8rem" }}>Nos valeurs</div>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3vw, 38px)", fontWeight: 700, color: C.text, lineHeight: 1.2, letterSpacing: "-0.5px", marginBottom: "3rem" }}>
           Ce qui guide <em style={{ fontStyle: "italic", color: C.earth }}>chaque décision</em>
@@ -85,7 +85,7 @@ export function AboutPage() {
       </section>
 
       {/* ── AUTHOR ── */}
-      <section style={{ background: C.ocrePale, padding: "5rem 4rem" }}>
+      <section style={{ background: C.ocrePale, padding: "5rem 4rem" }} className="apple-section oil-paint">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <div style={{ fontSize: 12, color: C.rose, letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif", marginBottom: "0.8rem" }}>Qui est Marguérite ASSOU ?</div>
@@ -93,7 +93,7 @@ export function AboutPage() {
               Marguérite ASSOU
             </h2>
             <p style={{ fontSize: 16, color: C.textMid, fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: 1.85, marginBottom: "0.8rem" }}>
-              Actuellement élève ingénieure en 3ème année de cycle ingenieur à l'École Nationale Supérieurede Génie Mathématique et Modélisation au sein de l'Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM) du Bénin,Marguérite travaille consatamment dans le cadre de l'application des mathématiques à la santé publique.
+              Actuellement élève ingénieure en 1ère année de cycle ingenieur à l'École Nationale Supérieurede Génie Mathématique et Modélisation au sein de l'Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM) du Bénin,Marguérite travaille consatamment dans le cadre de l'application des mathématiques à la santé publique.
             </p>
             <p style={{ fontSize: 16, color: C.textMid, fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: 1.85 }}>
               Convaincue que la technologie doit d'abord servir ceux qui en ont le plus besoin, elle continuera d'enrichir l'outil avec de nouvelles données et partenariats cliniques. Anontché n'est que le début. 
@@ -103,7 +103,7 @@ export function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ background: `linear-gradient(135deg, ${C.roseDark} 0%, ${C.rose} 50%, ${C.ocre} 100%)`, padding: "4rem", textAlign: "center" }}>
+      <section style={{ background: `linear-gradient(135deg, ${C.roseDark} 0%, ${C.rose} 50%, ${C.ocre} 100%)`, padding: "4rem", textAlign: "center" }} className="oil-paint">
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(24px, 3vw, 34px)", fontWeight: 700, color: C.white, lineHeight: 1.35, marginBottom: "2rem" }}>
           Prêt à commencer votre évaluation ?
         </h2>

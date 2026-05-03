@@ -46,7 +46,7 @@ const cards = [
 
 export function PreventionSection() {
   return (
-    <section style={{ background: C.ocrePale, padding: "5rem 4rem" }}>
+    <section style={{ background: C.ocrePale, padding: "5rem 4rem" }} className="apple-section oil-paint">
       <div style={{ fontSize: 12, color: C.rose, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "0.8rem", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         Prévention & Éducation
       </div>
@@ -60,11 +60,11 @@ export function PreventionSection() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {cards.map((card) => (
           <div key={card.title}
-            className="flex flex-col gap-4 rounded-[18px] p-8 transition-transform duration-200 cursor-default"
-            style={{ background: C.white, border: "0.5px solid rgba(139,58,15,0.1)" }}
+            className="flex flex-col gap-4 rounded-[26px] p-8 apple-hover cursor-default glass-panel"
+            style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.88), rgba(248,249,250,0.7))", border: "0.5px solid rgba(139,58,15,0.08)" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.transform = "translateY(-4px)")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = "translateY(0)")}>
-            <div className="flex items-center justify-center w-12 h-12 rounded-[14px]" style={{ background: C.sand, border: "0.5px solid rgba(139,58,15,0.1)" }}>
+            <div className="flex items-center justify-center w-12 h-12 rounded-[16px]" style={{ background: "rgba(248,249,250,0.94)", border: "0.5px solid rgba(139,58,15,0.08)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.8)" }}>
               {card.icon}
             </div>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: C.text, fontWeight: 600, lineHeight: 1.3 }}>
@@ -73,7 +73,7 @@ export function PreventionSection() {
             <div style={{ fontSize: 14, color: C.textMid, lineHeight: 1.75, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               {card.text}
             </div>
-            <span className="flex items-center gap-1.5 mt-auto cursor-pointer" style={{ fontSize: 14, color: C.earth, fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <span className="flex items-center gap-1.5 mt-auto cursor-pointer" style={{ fontSize: 14, color: C.earth, fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif", opacity: 0.92 }}>
               {card.link}
               <ArrowRight size={15} aria-hidden="true" />
             </span>

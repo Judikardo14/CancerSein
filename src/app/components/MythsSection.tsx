@@ -29,7 +29,7 @@ const pairs = [
 
 export function MythsSection() {
   return (
-    <section style={{ background: C.sandDeep, padding: "5rem 4rem" }}>
+    <section style={{ background: C.sandDeep, padding: "5rem 4rem" }} className="apple-section oil-paint">
       <div
         style={{
           fontSize: 11,
@@ -58,16 +58,15 @@ export function MythsSection() {
         <em style={{ fontStyle: "italic", color: C.earth }}>et la réalité</em>
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {pairs.map((pair, i) => (
-          <>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {pairs.map((pair) => (
+          <div key={pair.myth} className="contents">
             {/* Myth */}
             <div
-              key={`myth-${i}`}
-              className="rounded-[14px] px-6 py-5"
+              className="rounded-[20px] px-6 py-5 glass-panel apple-hover"
               style={{
-                background: "#EEF2F6",
-                border: "0.5px solid rgba(212,114,26,0.3)",
+                background: "linear-gradient(180deg, rgba(255,255,255,0.86), rgba(248,249,250,0.7))",
+                border: "0.5px solid rgba(65,90,119,0.1)",
               }}
             >
               <div
@@ -97,11 +96,10 @@ export function MythsSection() {
 
             {/* Reality */}
             <div
-              key={`reality-${i}`}
-              className="rounded-[14px] px-6 py-5"
+              className="rounded-[20px] px-6 py-5 glass-panel apple-hover"
               style={{
-                background: C.rosePale,
-                border: "0.5px solid rgba(194,87,115,0.25)",
+                background: "linear-gradient(180deg, rgba(246,230,231,0.86), rgba(246,230,231,0.72))",
+                border: "0.5px solid rgba(229,152,155,0.18)",
               }}
             >
               <div
@@ -128,7 +126,7 @@ export function MythsSection() {
                 {pair.reality}
               </div>
             </div>
-          </>
+          </div>
         ))}
       </div>
     </section>
